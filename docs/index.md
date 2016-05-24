@@ -181,7 +181,7 @@ Following we will create a batch script for each runtime model.
 <!-- dont delete me comment -->
 1. Get the source using `git`.
 		
-		$ git clone https://github.com/nikoloutsa/aris_exercises.git
+		$ git clone https://github.com/hpc-grnet-gr/aris_exercises.git 
 		$ cd aris_exercises
 
 1. Build the code using `make`.

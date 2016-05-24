@@ -1,6 +1,6 @@
 site_name: Exercises
 
-repo_url: https://github.com/nikoloutsa/aris_exercises
+repo_url: https://github.com/hpc-grnet-gr/aris_exercises.git  
 site_description: ARIS exercises
 site_author: Nikos Nikoloutsakos
 #theme: bootstrap

@@ -6,7 +6,7 @@
 
 1. Obtain your training username and account.
     
-2. Download private ssh key TBD: link 
+2. Download private ssh key : [link](http://events.hpc.grnet.gr/event/16/)
 
 ### Login with SSH
 ARIS supercomputer uses login nodes for interactive access and the submission of batch jobs.

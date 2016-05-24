@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#SBATCH --job-name=mpipi # Job name
+#SBATCH --ntasks=1 # Total number of tasks
+#SBATCH -t 00:10:00 # Run time (hh:mm:ss) - (max 48h)
+
+# Load any necessary modules
+module load intel
+module load intelmpi
+
+export I_MPI_FABRICS=shm:dapl
+
+# Launch the executable
+srun mpipi ${SIZE} |tee ${SLURM_JOB_NAME}.${SIZE}.${SLURM_NTASKS}.log

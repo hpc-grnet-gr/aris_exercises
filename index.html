@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="ARIS exercises">
+        <meta name="author" content="Nikos Nikoloutsakos">
+        
+        <link rel="shortcut icon" href="./img/favicon.ico">
+
+	<title>Exercises</title>
+
+        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="./css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href=".">Exercises</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/nikoloutsa/aris_exercises">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#aris-exercises">ARIS Exercises</a></li>
+        
+            <li><a href="#login-to-aris">Login to ARIS</a></li>
+        
+            <li><a href="#user-environment">User Environment</a></li>
+        
+            <li><a href="#running-jobs">Running jobs</a></li>
+        
+            <li><a href="#ex1-application-execution">Ex.1 Application Execution</a></li>
+        
+            <li><a href="#ex2-see-how-well-your-application-scales">Ex.2 See how well your application scales.</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="aris-exercises">ARIS Exercises</h1>
+<h2 id="login-to-aris">Login to ARIS</h2>
+<h3 id="get-your-login-credentials">Get your login credentials</h3>
+<ol>
+<li>
+<p>Obtain your training username and account.</p>
+</li>
+<li>
+<p>Download private ssh key TBD: link </p>
+</li>
+</ol>
+<h3 id="login-with-ssh">Login with SSH</h3>
+<p>ARIS supercomputer uses login nodes for interactive access and the submission of batch jobs.</p>
+<p>Connect to ARIS login nodes via SSH :</p>
+<h4 id="linuxmac">Linux/Mac</h4>
+<p>Open a terminal and run</p>
+<pre><code class="bash">$ ssh -i /path/to/ssh/key -X &lt;USERNAME&gt;@login.aris.grnet.gr
+
+# -X enables X11 forwarding 
+
+#in case of problems confirm your ssh key permissions
+$ chmod 600 /path/to/ssh/key
+</code></pre>
+
+<p>where <code>&lt;USERNAME&gt;</code> is your ARIS training account.</p>
+<h4 id="windows">Windows</h4>
+<p>Microsoft Windows do not have a built-in SSH client. We recommend downloading the following software:</p>
+<ul>
+<li>SSH client - <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PUTTY</a><ul>
+<li><a href="http://doc.aris.grnet.gr/login/#putty">configuration instructions for ARIS</a></li>
+</ul>
+</li>
+<li>SSH client - <a href="http://mobaxterm.mobatek.net/">MobaXterm</a></li>
+<li>SSH client - <a href="http://doc.aris.grnet.gr/login/#bitvise">Bitvise</a><ul>
+<li><a href="http://doc.aris.grnet.gr/login/#bitvise">configuration instructions for ARIS</a></li>
+</ul>
+</li>
+<li>File client - <a href="http://winscp.net/eng/index.php">WinSCP</a></li>
+</ul>
+<!--
+Q1. Login enable X11 forwarding
+-->
+
+<p>For more information on how to login please read our documentation site <a href="http://doc.aris.grnet.gr/login/#login-to-aris">http://doc.aris.grnet.gr/login/#login-to-aris</a></p>
+<!--
+## [Transfer files](http://doc.aris.grnet.gr/login/#data-transfer)
+
+Terminal: 
+
+wzxhzdk:1
+
+-->
+
+<h2 id="user-environment"><a href="http://doc.aris.grnet.gr/environment/">User Environment</a></h2>
+<ol>
+<li>
+<p>Check the available software.</p>
+<pre><code>$ module avail
+</code></pre>
+</li>
+<li>
+<p>Check the loaded modules.</p>
+<pre><code>$ module list
+</code></pre>
+</li>
+<li>
+<p>Which is the default GNU compiler ?</p>
+</li>
+<li>
+<p>Load the <code>gnuplot</code> tool. We will need this in order to make plots for Ex.2 </p>
+<pre><code>$ module load gnuplot
+</code></pre>
+</li>
+<li>
+<p>Inspect the environment changes when loading the <code>gnuplot</code> module</p>
+<pre><code>$ module show gnuplot
+</code></pre>
+</li>
+<li>
+<p>Check the available partitions.</p>
+<pre><code>$ sinfo -s
+</code></pre>
+</li>
+<li>
+<p>Check your account information.</p>
+<pre><code>$ mybudget
+
+$ myreport
+</code></pre>
+</li>
+<li>
+<p>What are the limits for your account ?       </p>
+</li>
+<li>
+<p>Inspect ARIS file systems</p>
+<pre><code>$ mmlsquota --block-size 1G
+</code></pre>
+</li>
+<li>
+<p>Switch to your working directory in order to run the following exercises.        </p>
+<pre><code>$ cd $WORKDIR
+
+$ pwd
+# /work/training/&lt;USERNAME&gt;
+</code></pre>
+</li>
+<li>
+<p>Check your disk usage</p>
+<pre><code># HOME file system
+$ du -chs $HOME
+
+# WORK file system
+$ du -chs $WORKDIR
+</code></pre>
+</li>
+</ol>
+<h2 id="running-jobs">Running jobs</h2>
+<p>In order to run jobs on ARIS you need an account to charge compute hours.
+Replace the <code>&lt;TRAINING_PROJECT&gt;</code> with your given training project account in the following examples.</p>
+<h3 id="prepare-a-slurm-script-file">Prepare a SLURM script file</h3>
+<ol>
+<li>
+<p>Create a sample SLURM script named <code>my_script.slurm</code></p>
+<pre><code>#!/bin/bash
+#SBATCH --job-name=my_script    # Job name
+#SBATCH --ntasks=1              # Number of tasks
+#SBATCH --time=00:01:00         # Run time (hh:mm:ss) - 1 minute 
+#SBATCH --account=&lt;TRAINING_PROJECT&gt;
+
+module load gnu intel intelmpi        #load any needed modules
+
+echo "Start at `date`"
+
+# Job steps
+srun hostname
+srun sleep 30
+
+echo "End at `date`"
+</code></pre>
+</li>
+<li>
+<p>Submit your script to execute on ARIS.</p>
+<pre><code>$ sbatch my_script.slurm
+# Submitted batch job &lt;JOBID&gt;
+</code></pre>
+</li>
+<li>
+<p>Check your running jobs.</p>
+<pre><code>$ squeue -u &lt;USERNAME&gt;
+</code></pre>
+</li>
+<li>
+<p>Inspect the output files.</p>
+<pre><code>$ cat my_script-&lt;JOBID&gt;.out
+</code></pre>
+</li>
+<li>
+<p>If you want to cancel your running job.</p>
+<pre><code>$ scancel &lt;JOBID&gt;
+
+# or cancel all your running jobs 
+$ scancel -u &lt;USERNAME&gt;
+</code></pre>
+</li>
+<li>
+<p>Accounting information for completed jobs (current day)</p>
+<pre><code>$ sacct
+</code></pre>
+</li>
+<li>
+<p>Try to execute the sample script on multiple nodes</p>
+</li>
+<li>
+<p>Create the same simple SLURM script using the online ARIS script-template: <a href="http://doc.aris.grnet.gr/scripttemplate/">http://doc.aris.grnet.gr/scripttemplate/</a></p>
+</li>
+<li>
+<p>For more details about running parallel job on ARIS please read: <a href="http://doc.aris.grnet.gr/run/">http://doc.aris.grnet.gr/run/</a></p>
+</li>
+</ol>
+<h2 id="ex1-application-execution">Ex.1 Application Execution</h2>
+<p>Examine a simple program that computes π by Monte-Carlo integration of a quarter of a unit circle.
+Given is the source code in <code>C</code> language, in four different runtime models.</p>
+<ul>
+<li>Serial program: <code>serialpi.c</code></li>
+<li>Multi-threaded program (with OpenMP): <code>omppi.c</code></li>
+<li>Multi-process program (with MPI): <code>mpipi.c</code></li>
+<li>Hybrid program (with MPI+OpenMP): mpiomppi.c</li>
+</ul>
+<p>Consult the documentation how to submit jobs for your programming model. <a href="http://doc.aris.grnet.gr/run/#runtime-models">http://doc.aris.grnet.gr/run/#runtime-models</a>
+Following we will create a batch script for each runtime model.  </p>
+<!-- dont delete me comment -->
+
+<ol>
+<li>
+<p>Get the source using <code>git</code>.</p>
+<pre><code>$ git clone https://github.com/nikoloutsa/aris_exercises.git
+$ cd aris_exercises
+</code></pre>
+</li>
+<li>
+<p>Build the code using <code>make</code>.</p>
+<pre><code> $ make
+
+ # Check that you got all the executables
+ # serialpi, omppi, mpipi, mpiomppi
+</code></pre>
+</li>
+</ol>
+<h3 id="serial-job-execution">Serial job execution</h3>
+<p>Run the serial program using 1 processor.</p>
+<ol>
+<li>
+<p>Inspect the file <code>serial.slurm</code> </p>
+<pre><code>#!/bin/bash
+
+#SBATCH --job-name=pi# Job name
+#SBATCH --ntasks=1 # Total number of tasks
+#SBATCH --nodes=1 # Total number of nodes requested
+#SBATCH --ntasks-per-node=1 # Tasks per node
+#SBATCH --cpus-per-task=1 # Threads per task
+#SBATCH -t 00:10:00 # Run time (hh:mm:ss) - (max 48h)
+
+# Load any necessary modules
+module load intel
+
+# Launch the executable
+./serialpi
+</code></pre>
+</li>
+<li>
+<p>Submit your serial job.</p>
+<pre><code>$ sbatch serial.slurm
+</code></pre>
+</li>
+<li>
+<p>Check the output files.</p>
+</li>
+</ol>
+<h3 id="openmp-job-execution">OpenMP job execution</h3>
+<p>Run the OpenMP program using 20 threads.</p>
+<ol>
+<li>
+<p>Inspect the file <code>openmp.slurm</code>.</p>
+<pre><code>#!/bin/bash
+
+#SBATCH --job-name=pi# Job name
+#SBATCH --ntasks=1 # Total number of tasks
+#SBATCH --nodes=1 # Total number of nodes requested
+#SBATCH --ntasks-per-node=1 # Tasks per node
+#SBATCH --cpus-per-task=20 # Threads per task
+#SBATCH -t 00:10:00 # Run time (hh:mm:ss) - (max 48h)
+
+# Load any necessary modules
+module load intel
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Launch the executable
+srun omppi
+</code></pre>
+</li>
+<li>
+<p>Submit your openmp job.</p>
+<pre><code>$ sbatch openmp.slurm
+</code></pre>
+</li>
+</ol>
+<h3 id="mpi-job-execution">MPI job execution</h3>
+<p>Run the MPI program using 2 nodes.</p>
+<ol>
+<li>
+<p>Inspect the file <code>mpi.slurm</code>.</p>
+<pre><code>  #!/bin/bash
+
+  #SBATCH --job-name=mpipi # Job name
+  #SBATCH --ntasks=2 # Total number of tasks
+  #SBATCH --nodes=1 # Total number of nodes requested
+  #SBATCH --ntasks-per-node=1 # Tasks per node
+  #SBATCH --cpus-per-task=1 # Threads per task(=1) for pure MPI
+  #SBATCH -t 00:10:00 # Run time (hh:mm:ss) - (max 48h)
+
+  # Load any necessary modules
+  module load intel
+  module load intelmpi
+
+  export I_MPI_FABRICS=shm:dapl
+
+  # Launch the executable
+  srun mpipi
+</code></pre>
+</li>
+<li>
+<p>Submit your <code>mpi</code> job.</p>
+<pre><code>$ sbatch mpi.slurm
+</code></pre>
+</li>
+</ol>
+<h3 id="hybrid-job-execution">Hybrid job execution</h3>
+<p>Run the hybrid program using 2 nodes and 20 threads per node.</p>
+<ol>
+<li>
+<p>Correct the following script file <code>hybrid.slurm</code>.</p>
+<pre><code>#!/bin/bash
+
+#SBATCH --job-name=mpiomppi # Job name
+#SBATCH --ntasks=40 # Total number of tasks
+#SBATCH --nodes=2 # Total number of nodes requested
+#SBATCH --ntasks-per-node=1 # Tasks per node
+#SBATCH --cpus-per-task=20 # Threads per task(=1) for pure MPI
+#SBATCH -t 00:10:00 # Run time (hh:mm:ss) - (max 48h)
+
+# Load any necessary modules
+module load intel
+module load intelmpi
+
+export I_MPI_FABRICS=shm:dapl
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Launch the executable
+srun mpiomppi
+</code></pre>
+</li>
+<li>
+<p>Submit your <code>hybrid</code> job.</p>
+<pre><code>$ sbatch hybrid.slurm
+</code></pre>
+</li>
+</ol>
+<h2 id="ex2-see-how-well-your-application-scales">Ex.2 See how well your application scales.</h2>
+<blockquote>
+<p>Scalability is defined as the ability to handle more work as the size of the computer or application grows.</p>
+</blockquote>
+<!--
+Ideal a problem would scale in a linear fashion, that is, the program would speed up by a factor of
+N when it runs on a machine having N nodes.
+-->
+
+<ul>
+<li><em>Strong scaling</em> : the problem size remains fixed while the number of nodes increases. (work per node decrease)</li>
+<li><em>Weak scaling</em>: the problem gets bigger and bigger as the number of processors increases. (work per node same)</li>
+</ul>
+<p>Given the code in the previous exercise above we shall test how well this application scales.</p>
+<h3 id="strong-scaling-test"><em>Strong scaling test:</em></h3>
+<ol>
+<li>Keeping the problem size constant, run MPI on only one processor. Compare to the serial calculation to get the overhead associated with MPI.</li>
+<li>
+<p>Keeping the problem size run the MPI code for 1, 2, 4, 8 computing nodes.</p>
+<p>Run the the <code>strong_scale.sh</code> script to get the timing results.</p>
+<pre><code>$ bash strong_scale.sh
+</code></pre>
+<p>Check the status or your submitted jobs, output results will be saved in the <code>mpipi-strong*.log</code> files.</p>
+<pre><code>$ squeue -i 5 -u &lt;USERNAME&gt;
+# press Ctrl + C to exit
+</code></pre>
+</li>
+<li>
+<p>Make a plot of run time versus number of nodes.</p>
+<p>You can use <code>gnuplot</code> to plot your results.</p>
+<pre><code># Gather result timings in one file
+$ cat mpipi-strong*.log | grep -v '^#' | sort -n -k 1 &gt; mpipi-strong.dat
+
+# plot 
+$ gnuplot strong_plot.gnuplot
+</code></pre>
+<p>You can view the output plot image <code>mpipi-strong.png</code></p>
+<pre><code># If you have enabled X11 forwarding in SSH (-X) you can view the output
+$ display mpipi-strong.png
+
+# or from your laptop download the image file to view it localy
+# use the path to your ssh key
+$ scp -i /path/to/ssh/key &lt;USERNAME&gt;@login.aris.grnet.gr:/work/training/&lt;USERNAME&gt;/aris_exercises/mpipi-strong.png .
+</code></pre>
+</li>
+<li>
+<p>Strong scalability would yield a straight line graph. Comment.</p>
+</li>
+</ol>
+<h3 id="weak-scaling-test"><em>Weak scaling test:</em></h3>
+<!--
+ Increasing the problem size simultaneously with the number of nodes beeing used.
+-->
+
+<ol>
+<li>
+<p>Run the MPI code for 1, 2, 4, 8 computing nodes, with proportionally larger values in each case (2000, 4000, ...)</p>
+<p>Run the <code>weak_scale.sh</code> script to get the timing results.</p>
+<pre><code>$ bash weak_scale.sh
+</code></pre>
+<p>Check the status or your submitted jobs, output results will be saved in the mpipi-weak*.log files.</p>
+</li>
+<li>
+<p>Make a plot of the run time versus number of computing nodes.</p>
+<pre><code>$ cat mpipi-weak*.log | grep -v '^#' | sort -n -k 1 &gt; mpipi-weak.dat
+$ gnuplot weak_plot.gnuplot
+</code></pre>
+<p>Output plot <code>mpipi-weak.png</code></p>
+<pre><code># If you have enabled X11 forwarding in SSH (-X) you can view the output
+$ display mpipi-weak.png
+
+# or from your laptop download the image file to view it localy
+$ scp -i /path/to/ssh/key  &lt;USERNAME&gt;@login.aris.grnet.gr:/work/training/&lt;USERNAME&gt;/aris_exercises/mpipi-weak.png .
+</code></pre>
+</li>
+<li>
+<p>Weak scaling would imply that the run time remains constant as the problem size and the nummber of compute nodes increase in proportion. Comment.</p>
+</li>
+<li>Is this problem more appropriate for weak or strong scaling ?</li>
+</ol></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="./js/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script>var base_url = '.';</script>
+        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+        <script src="./js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 0.14.0
+Build Date UTC : 2016-05-24 13:54:12.866438
+-->
